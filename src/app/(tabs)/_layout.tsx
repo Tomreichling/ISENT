@@ -1,53 +1,85 @@
 import { Image } from "expo-image";
 import { Tabs } from "expo-router";
-
+import theme from "../../theme";
 
 export default function TabsLayout() {
   return (
-    <Tabs screenOptions={{
-      tabBarActiveTintColor: "#B82D3E",
-      tabBarInactiveTintColor: "#8E8E93",
-    }}>
-      <Tabs.Screen name="index" options={{ title: "Accueil" , tabBarIcon: ({ focused }) => (
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: theme.primary,
+        tabBarInactiveTintColor: theme.inactive,
+      }}
+    >
+      <Tabs.Screen
+        name="index"
+        options={{
+          title:"Home",
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
             <Image
-              source={focused
-                ? require("../../../assets/tabsIcon/home2.svg")
-                : require("../../../assets/tabsIcon/home1.svg")}
+              source={require("../../../assets/tabsIcon/home.svg")}
               style={{ width: 24, height: 24 }}
+              tintColor={color as string}
             />
-        ),}}/>
-        <Tabs.Screen name="agenda" options={{ title: "Agenda",  tabBarIcon: ({ focused }) => (
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="agenda"
+        options={{
+          title:"Agenda",
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
             <Image
-              source={focused
-                ? require("../../../assets/tabsIcon/agenda2.svg")
-                : require("../../../assets/tabsIcon/agenda1.svg")}
+              source={require("../../../assets/tabsIcon/agenda.svg")}
               style={{ width: 24, height: 24 }}
+              tintColor={color as string}
             />
-        ),}}/>
-        <Tabs.Screen name="notes" options={{ title: "Notes", tabBarIcon: ({ focused }) => (
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="grades"
+        options={{
+          title:"Grades",
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
             <Image
-              source={focused
-                ? require("../../../assets/tabsIcon/notes2.svg")
-                : require("../../../assets/tabsIcon/notes1.svg")}
+              source={require("../../../assets/tabsIcon/grades.svg")}
               style={{ width: 24, height: 24 }}
+              tintColor={color as string}
             />
-        ),}}/>
-        <Tabs.Screen name="vie" options={{ title: "La vie",  tabBarIcon: ({ focused }) => (
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="life"
+        options={{
+          title:"Life",
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
             <Image
-              source={focused
-                ? require("../../../assets/tabsIcon/vie2.svg")
-                : require("../../../assets/tabsIcon/vie1.svg")}
+              source={require("../../../assets/tabsIcon/life.svg")}
               style={{ width: 24, height: 24 }}
+              tintColor={color as string}
             />
-        ),}}/>
-        <Tabs.Screen name="profil" options={{ title: "Profil",  tabBarIcon: ({ focused }) => (
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title:"Profile",
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
             <Image
-              source={focused
-                ? require("../../../assets/tabsIcon/profil2.svg")
-                : require("../../../assets/tabsIcon/profil1.svg")}
+              source={require("../../../assets/tabsIcon/profile.svg")}
               style={{ width: 24, height: 24 }}
+              tintColor={color as string}
             />
-        ),}}/>
+          ),
+        }}
+      />
     </Tabs>
   );
 }

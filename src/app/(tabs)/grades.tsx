@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
 
-export default function Notes() {
+export default function Grades() {
   return (
     <View style={styles.container}>
-      <Text>Notes ici !</Text>
+      <Text>Your grades</Text>
     </View>
   );
 }

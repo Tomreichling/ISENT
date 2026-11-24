@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
 
-export default function VIe() {
+export default function Profile() {
   return (
     <View style={styles.container}>
-      <Text>La vie étudiante ici !</Text>
+      <Text>You</Text>
     </View>
   );
 }
