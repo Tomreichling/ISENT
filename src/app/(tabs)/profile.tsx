@@ -20,6 +20,12 @@ export default function Profile() {
   const [credentials, setCredentials] = useState<Credentials | null>(null);
   const [checkingAuth, setCheckingAuth] = useState(true);
 
+  async function logout() {
+    setCredentials(null);
+    setInfos(null);
+    await AsyncStorage.removeItem("credentials");
+  }
+
   async function load_credentials() {
     const credentials = await AsyncStorage.getItem("credentials");
     if (credentials !== null) {
@@ -43,8 +49,7 @@ export default function Profile() {
       },
     });
     if (!response.ok) {
-      setCredentials(null);
-      await AsyncStorage.removeItem("credentials");
+      await logout();
       return;
     }
     const data = await response.json();
@@ -85,8 +90,7 @@ export default function Profile() {
         <Pressable
           style={styles.secondaryButton}
           onPress={async () => {
-            setCredentials(null);
-            await AsyncStorage.removeItem("credentials");
+            await logout();
           }}
         >
           <Text style={styles.secondaryButtonText}>Logout</Text>
