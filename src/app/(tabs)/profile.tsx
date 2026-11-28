@@ -42,6 +42,11 @@ export default function Profile() {
         Token: credentials.token,
       },
     });
+    if (!response.ok) {
+      setCredentials(null);
+      await AsyncStorage.removeItem("credentials");
+      return;
+    }
     const data = await response.json();
     setInfos(data);
   }
